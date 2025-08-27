@@ -1,0 +1,34 @@
+.Conteudo {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 200px;
+}
+.title {
+	line-height: 1.2;
+}
+.title h1 {
+	font-size: 50px;
+	text-transform: capitalize;
+	margin-bottom: 0.5rem;
+	color: black;
+}
+p {
+	font-size: 22px;
+	font-weight: 500;
+	max-width: 400px;
+}
+.container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;          
+  gap: 2rem;                      
+}
+.imagem_destaque {
+  flex: 1;                        
+  display: flex;                  
+  justify-content: flex-end;    
+}
+.imagem_destaque img {
+  max-width: 400px;
+  height: auto;
+}
