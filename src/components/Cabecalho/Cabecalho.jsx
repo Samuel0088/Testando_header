@@ -4,18 +4,18 @@ import style from "./Cabecalho.module.css";
 const Cabecalho = () => {
   const [menuAtivo, setMenuAtivo] = useState(false);
 
-  const toggleMenu = () => setMenuAtivo((v) => !v);
-  const fechar = () => setMenuAtivo(false);
+  const toggleMenu = () => setMenuAtivo((prev) => !prev);
+  const fecharMenu = () => setMenuAtivo(false);
 
   return (
-    <div className={style.Cabecalho}>
+    <header className={style.Cabecalho}>
       <nav className={style.navBar}>
-        {/* LOGO PRINCIPAL */}
+        {/* Logo */}
         <div className={style.logo}>
           <a href="../principal/index.html">Mobiliza Vida</a>
         </div>
 
-        {/* BOTÃO HAMBURGUER */}
+        {/* Botão hamburguer */}
         <button
           className={style.hamburger}
           onClick={toggleMenu}
@@ -29,42 +29,42 @@ const Cabecalho = () => {
           <div></div>
         </button>
 
-        {/* MENU MOBILE */}
-        <ul
+        {/* Menu Mobile */}
+        <div
           id="menu-mobile"
           className={`${style.menuItems} ${menuAtivo ? style.active : ""}`}
           role="menu"
           aria-hidden={!menuAtivo}
         >
-          <li>
-            <button
-              className={style.close}
-              onClick={fechar}
-              aria-label="Fechar menu"
-              type="button"
-            >
-              ×
-            </button>
-          </li>
+          <button
+            className={style.close}
+            onClick={fecharMenu}
+            aria-label="Fechar menu"
+            type="button"
+          >
+            ×
+          </button>
 
-          <li className={style.logoMenu}>
+          <div className={style.logoMenu}>
             <p>Mobiliza Vida</p>
-          </li>
+          </div>
 
-          <li><a href="../linhaEMTU/linhaEMTU.html">EMTU</a></li>
-          <li><a href="../linhaSOU/linhaSOU.html">SOU</a></li>
-          <li><a href="#">Status</a></li>
-          <li><a href="#">Tempo real</a></li>
-        </ul>
+          <ul>
+            <li><a href="../linhaEMTU/linhaEMTU.html">EMTU</a></li>
+            <li><a href="../linhaSOU/linhaSOU.html">SOU</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Tempo real</a></li>
+          </ul>
+        </div>
       </nav>
 
-      {/* SOBREPOSIÇÃO FUNDO */}
+      {/* Overlay para fechar o menu ao clicar fora */}
       <div
         className={`${style.overlay} ${menuAtivo ? style.show : ""}`}
-        onClick={fechar}
+        onClick={fecharMenu}
         aria-hidden={!menuAtivo}
       />
-    </div>
+    </header>
   );
 };
 
