@@ -1,75 +1,89 @@
+/* ========== NAVBAR GERAL ========== */
 .navBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;         
+  padding: 1rem 2rem;
   background: rgba(26, 26, 34, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  position: fixed;               
+  position: fixed;
   top: 20px;
-  margin-left: 20px;
-  padding-right: 50px;
+  left: 20px;
+  right: 20px;
   z-index: 1000;
-  border-radius: 10px;        
+  border-radius: 10px;
   transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
+
+/* ========== LOGO ========== */
 .logo a {
   display: flex;
   align-items: center;
   font-size: 17px;
   font-weight: 600;
+  color: #fff;
+  text-decoration: none;
 }
+
+/* ========== LOGO DENTRO DO MENU ========== */
 .logoMenu {
   font-weight: 700;
   color: #fff;
-  margin-bottom: 1rem;
-  margin-top: -30px;    
+  margin: -30px 0 1rem;
 }
+
 .logoMenu p {
   font-size: 18px;
-  text-decoration: none;
-  margin-top: -5px;
+  margin: -5px 0 0;
 }
+
+/* ========== ITENS DO MENU ========== */
 .menuItems {
   display: flex;
   gap: 2rem;
-  margin-top: 0;
-  margin-right: -30px;
-  margin-top: -20px;
-}
-li {
+  margin: 0;
   list-style: none;
+}
+
+.menuItems li {
   text-transform: capitalize;
 }
-a {
+
+.menuItems a {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
   display: block;
   transition: 0.3s ease-in-out;
 }
-a:hover {
+
+.menuItems a:hover {
   text-decoration: underline;
   transform: scale(1.1);
 }
+
+/* ========== HAMBURGER (botão mobile) ========== */
 .hamburger {
-  display: flex;
+  display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
-  margin-left: 150px;
-  background: transparent; 
-  border: none;            
-  outline: none;         
-  padding: 0.5rem;           
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  z-index: 1001;
 }
+
 .hamburger div {
   width: 22px;
   height: 2px;
-  background-color: #fff; 
+  background-color: #fff;
   transition: all 0.3s ease;
 }
+
+/* ========== BOTÃO FECHAR MENU ========== */
 .close {
   position: absolute;
   top: 14px;
@@ -77,7 +91,7 @@ a:hover {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  border: 1px solid #3f3a3a1a;
+  border: 1px solid rgba(63, 58, 58, 0.1);
   background: transparent;
   color: #fff;
   font-size: 22px;
@@ -86,39 +100,53 @@ a:hover {
   place-items: center;
   cursor: pointer;
 }
+
+/* ========== OVERLAY (fundo escurecido) ========== */
 .overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);   
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 998;
 }
+
 .overlay.show {
   opacity: 1;
   pointer-events: auto;
 }
 
+/* ========== MENU MOBILE ========== */
+.menuItems {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #10162f;
+  flex-direction: column;
+  padding: 4rem 1.5rem 1.5rem;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  width: 200px;
+  height: 100vh;
+  z-index: 999;
+}
 
-  .menuItems.active {
-    transform: translateX(0);
-  }
+.menuItems.active {
+  transform: translateX(0);
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
+
   .menuItems {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: #10162f;
-    flex-direction: column;
-    padding: 4rem 1.5rem 1.5rem;
-    gap: 1.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    width: 200px;
-    height: 100vh;
+    gap: 1rem;
+    z-index: 100000;
   }
+}
